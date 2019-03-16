@@ -1,6 +1,6 @@
 Install
 --------------------------------------------------------------------
-Copy GHIDRApy_FunctionStringAssociate.py.py in ~/ghidra_scripts/ in Linux, or C:/Users/<username>/ghidra_scripts/ in Windows
+Copy GHIDRApy_FunctionStringAssociate.py in ~/ghidra_scripts/ in Linux, or C:/Users/<username>/ghidra_scripts/ in Windows
 
 How to run it
 --------------------------------------------------------------
