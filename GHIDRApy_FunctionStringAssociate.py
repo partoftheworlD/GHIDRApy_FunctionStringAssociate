@@ -46,13 +46,11 @@ class FunctionNode(ReferenceNode):
             s = s.replace("ds", "")
             return s
     def indentedString(self, depth=0):
-        counter = 0
         string  = ""
         for r in self.references:
             if r.hasString():
-                counter += 1
                 string  += "%s" % self.ReplaceStringTrash(r.indentedString(depth=depth+1))
-        return string, counter
+        return string
     def getAddresses(self):
         return self.fn.getBody().getAddresses(True)
     def addReference(self, reference):
@@ -129,8 +127,8 @@ while current_function is not None:
                 AddrSetView = current_function.getBody()
                 func = FunctionNode(None, AddrSetView.getMinAddress())
                 func.process()
-                strings, counter = func.indentedString()
+                strings = func.indentedString()
                 print str(strings)
-                if counter >= 1:
+                if len(strings) >= 1:
                         current_function.setRepeatableComment(str(strings))
                 current_function = getFunctionAfter(current_function)
