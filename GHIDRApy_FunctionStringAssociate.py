@@ -1,3 +1,4 @@
+# The script iterates through all the functions collecting all available strings in the function, and then sign their like a comment.
 # @category: Strings
 
 import ghidra.app.script.GhidraScript
