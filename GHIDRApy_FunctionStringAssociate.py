@@ -121,14 +121,11 @@ def getReferences(insn):
 
 current_function = getFirstFunction()
 while current_function is not None:
-        if current_function is None:
-                print "Please place the cursor within a function!"
-        else:
-                AddrSetView = current_function.getBody()
-                func = FunctionNode(None, AddrSetView.getMinAddress())
-                func.process()
-                strings = func.indentedString()
-                print str(strings)
-                if len(strings) >= 1:
-                        current_function.setRepeatableComment(str(strings))
-                current_function = getFunctionAfter(current_function)
+    AddrSetView = current_function.getBody()
+    func = FunctionNode(None, AddrSetView.getMinAddress())
+    func.process()
+    strings = func.indentedString()
+    print str(strings)
+    if len(strings) >= 1:
+        current_function.setRepeatableComment(str(strings))
+    current_function = getFunctionAfter(current_function)
