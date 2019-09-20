@@ -101,10 +101,8 @@ class FunctionNode(ReferenceNode):
 def getStringAtAddr(addr):
     """Get string at an address, if present"""
     data = getDataAt(addr)
-    if data is not None:
-        dt = data.getDataType()
-        if isinstance(dt, StringDataType):
-            return str(data)
+    if data and data.hasStringValue():
+        return data.getValue()
     return None
 
 def getStringReferences(insn):
@@ -130,7 +128,7 @@ while current_function is not None:
     func = FunctionNode(None, current_function.getBody().getMinAddress())
     func.process()
     strings = func.indentedString()
-    print str(strings)
+    print(strings)
     if len(strings) >= 1:
-        current_function.setRepeatableComment(str(strings))
+        current_function.setRepeatableComment(strings)
     current_function = getFunctionAfter(current_function)
