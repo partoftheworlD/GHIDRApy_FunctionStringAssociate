@@ -53,10 +53,10 @@ class FunctionNode(ReferenceNode):
             return s
 
     def indentedString(self):
-        string  = ""
+        string = ""
         for r in self.references:
             if r.hasString():
-                string  += "%s" % self.ReplaceStringTrash(r.indentedString())
+                string += "%s" % self.ReplaceStringTrash(r.indentedString())
         return string
 
     def getAddresses(self):
